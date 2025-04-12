@@ -1,5 +1,9 @@
+--creating database bookstore_db
 CREATE DATABASE bookstore_db;
 USE bookstore_db;
+
+-- Creating table cust_order
+
 CREATE TABLE cust_order (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
@@ -9,12 +13,16 @@ CREATE TABLE cust_order (
     FOREIGN KEY (order_status_id) REFERENCES order_status(order_status_id)
 );
 
+--inserting data into cust_order
+
 INSERT INTO cust_order (customer_id, order_date, order_status_id)
 VALUES 
     (1, '2025-04-10', 1),
     (2, '2025-04-11', 2),
     (3, '2025-04-12', 3);
     
+--creating table order_line
+
     CREATE TABLE order_line (
     order_line_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -25,11 +33,15 @@ VALUES
     FOREIGN KEY (book_id) REFERENCES book(book_id)
 );
 
+--inserting data into order_line
+
 INSERT INTO order_line (order_id, book_id, quantity, price_per_unit)
 VALUES 
     (1, 101, 2, 15.99),
     (1, 102, 1, 22.50),
     (2, 103, 3, 8.75);
+
+    --creating data into shipping_method
     
     CREATE TABLE shipping_method (
     shipping_method_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,12 +49,16 @@ VALUES
     cost DECIMAL(10, 2) NOT NULL
 );
 
+--inserting data into shipping_method
+
 INSERT INTO shipping_method (method_name, cost)
 VALUES 
     ('Standard', 5.00),
     ('Express', 10.00),
     ('International', 15.00);
     
+--creating table order_histoy
+
     CREATE TABLE order_history (
     history_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -52,16 +68,22 @@ VALUES
     FOREIGN KEY (order_status_id) REFERENCES order_status(order_status_id)
 );
 
+--inserting data into order_history
+
 INSERT INTO order_history (order_id, status_change_date, order_status_id)
 VALUES 
     (1, '2025-04-11', 2),
     (1, '2025-04-12', 3),
     (2, '2025-04-13', 1);
     
+--creating table order_status
+
     CREATE TABLE order_status (
     order_status_id INT AUTO_INCREMENT PRIMARY KEY,
     status_name VARCHAR(50) NOT NULL
 );
+
+--inserting data into order_status
 
 INSERT INTO order_status (status_name)
 VALUES 
