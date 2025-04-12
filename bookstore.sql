@@ -97,16 +97,16 @@ CREATE TABLE address_status (
 );
 --Insert sample data into address_status table
 INSERT INTO address_status (status_name) VALUES
-('Current'),
-('Previous'),
+('Delivered'),
+('Shipped'),
 ('Billing'),
-('Shipping'),
-('Temporary'),
+('Shipped'),
+('In Transit'),
 ('Pending'),
 ('Pending Confirmation'),
 ('Shipped'),
-('Primary'),
-('Processing'),
+('Delivered'),
+('Pending'),
 ('Inactive'),
 ('Active'),
 ('Main Residence'),
@@ -175,6 +175,16 @@ INSERT INTO customer_address (customer_id, address_id, status_id) VALUES
 ;
 
 
+--Define relationships between customers, addresses, and country
+A customer can have multiple addresses and an address can belong to multiple customers.
+many-to-many relationship between customer and address.
+one-to-many relationship between customer and customer_address.
+Each address belongs to a country.
+One- to-one relationship between customer and country
 
+Each customer can optionally belong to a publisher.
+one-to-one relationship between customer and publisher.
 
+customer_address uses address_status to define the role of that address.
+one-to-one relationship between customer_address and address_status.    
 
