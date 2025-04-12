@@ -1,9 +1,9 @@
---create bookstore.sql
--- This SQL script creates a database for a bookstore with tables for authors, books, and customers.
+--create database bookstore_db
+-- This SQL script creates a database for a bookstore_db with tables for authors, books, and customers.
 -- It also includes foreign key constraints to maintain referential integrity.
-CREATE DATABASE bookstore;
+CREATE DATABASE bookstore_db;
 
-USE bookstore;
+USE bookstore_db;
 
 --Create publisher table
 CREATE TABLE publisher (
