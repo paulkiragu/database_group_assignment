@@ -30,3 +30,27 @@ CREATE TABLE book_author (
     FOREIGN KEY (book_id) REFERENCES book(book_id) ON DELETE CASCADE,
     FOREIGN KEY (author_id) REFERENCES author(author_id) ON DELETE CASCADE
 );
+
+-- Insert data into book_language table
+INSERT INTO book_language (language_name) VALUES 
+('English'),
+('Spanish'),
+('French');
+
+-- Insert data into author table
+INSERT INTO author (first_name, last_name, birth_date) VALUES 
+('John', 'Doe', '1980-05-14'),
+('Jane', 'Smith', '1975-10-22'),
+('Albert', 'Camus', '1913-11-07');
+
+-- Insert data into book table
+INSERT INTO book (title, publication_year, language_id, isbn) VALUES 
+('The Stranger', 1942, 3, '123-4567890123'),
+('The Catcher in the Rye', 1951, 1, '456-1234567890'),
+('Don Quixote', 1605, 2, '789-0123456789');
+
+-- Insert data into book_author table
+INSERT INTO book_author (book_id, author_id) VALUES 
+(1, 3), -- 'The Stranger' by Albert Camus
+(2, 1), -- 'The Catcher in the Rye' by John Doe
+(3, 2); -- 'Don Quixote' by Jane Smith
